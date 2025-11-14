@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Marketplace Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles can go here */
+        .hero-section {
+            background: url('https://via.placeholder.com/1500x500?text=Our+Services+Hero+Image') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        .service-card {
+            border: none;
+            transition: transform 0.2s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Marketplace</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">회사소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="service.html">서비스</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">블로그</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">문의</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">검색</button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white ms-2" href="#">판매자 등록</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Services -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <h1>우리의 서비스</h1>
+            <p>다양한 분야의 전문가들이 제공하는 고품격 서비스를 경험하세요.</p>
+        </div>
+    </section>
+
+    <!-- Main Content - Services -->
+    <main class="container my-5">
+        <section class="mb-5">
+            <h2 class="text-center mb-4">주요 서비스 카테고리</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://via.placeholder.com/400x200?text=Design+Service" class="card-img-top" alt="Design Service">
+                        <div class="card-body">
+                            <h5 class="card-title">디자인 & 크리에이티브</h5>
+                            <p class="card-text">로고, 웹 디자인, 브랜딩 등 전문가의 손길로 당신의 아이디어를 현실로 만드세요.</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://via.placeholder.com/400x200?text=IT+Development" class="card-img-top" alt="IT Development">
+                        <div class="card-body">
+                            <h5 class="card-title">IT & 개발</h5>
+                            <p class="card-text">웹사이트 개발, 앱 개발, 소프트웨어 솔루션 등 맞춤형 IT 서비스를 제공합니다.</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://via.placeholder.com/400x200?text=Marketing+Consulting" class="card-img-top" alt="Marketing Consulting">
+                        <div class="card-body">
+                            <h5 class="card-title">마케팅 & 컨설팅</h5>
+                            <p class="card-text">온라인 마케팅, SEO, 비즈니스 컨설팅으로 당신의 사업 성장을 돕습니다.</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://via.placeholder.com/400x200?text=Education+Class" class="card-img-top" alt="Education Class">
+                        <div class="card-body">
+                            <h5 class="card-title">교육 & 클래스</h5>
+                            <p class="card-text">다양한 분야의 전문 강사들이 제공하는 온라인/오프라인 클래스를 만나보세요.</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://via.placeholder.com/400x200?text=Translation+Service" class="card-img-top" alt="Translation Service">
+                        <div class="card-body">
+                            <h5 class="card-title">번역 & 문서</h5>
+                            <p class="card-text">전문 번역가들이 제공하는 정확하고 신속한 번역 및 문서 작성 서비스를 이용하세요.</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://via.placeholder.com/400x200?text=Life+Style" class="card-img-top" alt="Life Style">
+                        <div class="card-body">
+                            <h5 class="card-title">라이프스타일</h5>
+                            <p class="card-text">개인 트레이닝, 멘토링, 컨설팅 등 삶의 질을 높이는 다양한 서비스를 제공합니다.</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Marketplace</h5>
+                    <p>당신이 찾는 모든 서비스, Marketplace에서.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>빠른 링크</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">홈</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">회사소개</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">판매자 등록</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">문의</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>연락처</h5>
+                    <ul class="list-unstyled">
+                        <li>이메일: info@marketplace.com</li>
+                        <li>전화: 000-0000-0000</li>
+                        <li>주소: 서울특별시 강남구 테헤란로</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-3 border-top pt-3">
+                <p>&copy; 2025 Marketplace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
