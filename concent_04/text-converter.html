@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트 변환기 - ToolKit Pro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap');
+
+    * { transition: all 0.3s ease; }
+
+    body {
+      background: linear-gradient(135deg, #faf5ff 0%, #fce7f3 50%, #eff6ff 100%);
+      min-height: 100vh;
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    h1 { 
+      font-size: 2rem; 
+      font-weight: 800; 
+      background: linear-gradient(90deg, #7C3AED, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h2 { font-size: 1.5rem; font-weight: 700; color: #1f2937; }
+    h3 { font-size: 1.25rem; font-weight: 600; color: #374151; }
+
+    input, textarea, select {
+      border: 2px solid #e5e7eb;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #7C3AED;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7C3AED, #EC4899);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 10px 15px rgba(124, 58, 237, 0.3);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+        width: 100%;
+        padding: 0.75rem;
+        background: #faf5ff;
+        color: #7C3AED;
+        border: 1px solid #e9d5ff;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .btn-secondary:hover {
+        background: #f3e8ff;
+    }
+  </style>
+</head>
+<body>
+  <header style="position: sticky; top: 0; z-index: 1000; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 0;">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="index.html" style="text-decoration: none;">
+          <div class="d-flex align-items-center gap-2">
+            <span style="font-size: 1.75rem;">⚡</span>
+            <h1 style="margin: 0; font-size: 1.5rem;">ToolKit Pro</h1>
+          </div>
+        </a>
+        <nav class="d-none d-md-flex gap-3">
+          <a href="password-generator.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">🔒 비밀번호</a>
+          <a href="image-converter.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">🖼️ 이미지</a>
+          <a href="text-converter.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">📝 텍스트</a>
+          <a href="qr-generator.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">📱 QR</a>
+          <a href="json-formatter.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">{} JSON</a>
+        </nav>
+        <div class="d-flex gap-3">
+          <span style="color: #6b7280; font-size: 0.875rem;">❤️ 12,847 사용자</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container" style="padding: 2rem 1rem;">
+    <div style="margin-bottom: 2rem;">
+      <a href="index.html" style="color: #9ca3af; text-decoration: none;">홈</a>
+      <span style="color: #d1d5db; margin: 0 0.5rem;">/</span>
+      <span style="color: #374151; font-weight: 600;">텍스트 변환기</span>
+    </div>
+    
+    <div style="background: white; border-radius: 1.5rem; padding: 3rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
+      <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">📝 텍스트 변환기</h1>
+      <p style="color: #6b7280; margin-bottom: 2rem;">대소문자, URL 인코딩/디코딩 등 다양한 텍스트 변환을 지원합니다.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6">
+            <label for="textInput" style="display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 0.75rem;">원본 텍스트</label>
+            <textarea id="textInput" placeholder="변환할 텍스트를 입력하세요..." style="height: 200px;"></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="textOutput" style="display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 0.75rem;">변환된 텍스트</label>
+            <textarea id="textOutput" readonly placeholder="결과" style="height: 200px; background: #f9fafb;"></textarea>
+        </div>
+      </div>
+
+      <div class="row g-2 mt-3">
+        <div class="col"><button onclick="convertText('upper')" class="btn-secondary">UPPERCASE</button></div>
+        <div class="col"><button onclick="convertText('lower')" class="btn-secondary">lowercase</button></div>
+        <div class="col"><button onclick="convertText('capitalize')" class="btn-secondary">Capitalize</button></div>
+        <div class="col"><button onclick="convertText('url')" class="btn-secondary">URL Encode</button></div>
+        <div class="col"><button onclick="convertText('decode')" class="btn-secondary">URL Decode</button></div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 3rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">🔥 관련 도구</h3>
+      <div class="row g-4">
+        <div class="col-md-4"><a href="word-counter.html" style="text-decoration: none;"><div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"><div style="font-size: 2rem; margin-bottom: 0.5rem;">🔢</div><h4 style="font-size: 1rem; font-weight: 700; color: #1f2937;">글자수 세기</h4></div></a></div>
+        <div class="col-md-4"><a href="json-formatter.html" style="text-decoration: none;"><div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"><div style="font-size: 2rem; margin-bottom: 0.5rem;">{}</div><h4 style="font-size: 1rem; font-weight: 700; color: #1f2937;">JSON 포맷터</h4></div></a></div>
+        <div class="col-md-4"><a href="password-generator.html" style="text-decoration: none;"><div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"><div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div><h4 style="font-size: 1rem; font-weight: 700; color: #1f2937;">비밀번호 생성기</h4></div></a></div>
+      </div>
+    </div>
+  </main>
+  
+  <footer style="background: white; border-top: 1px solid #e5e7eb; margin-top: 4rem; padding: 3rem 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span style="font-size: 1.5rem;">⚡</span>
+            <h3 style="margin: 0; font-size: 1.25rem; color: #1f2937;">ToolKit Pro</h3>
+          </div>
+          <p style="color: #6b7280; font-size: 0.875rem;">모든 작업을 한 곳에서</p>
+        </div>
+        <div class="col-md-6">
+          <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">주요 도구</h4>
+          <div class="d-flex flex-column gap-2">
+            <a href="password-generator.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">비밀번호 생성기</a>
+            <a href="image-converter.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">이미지 변환</a>
+            <a href="qr-generator.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">QR코드 생성</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.875rem;">
+        © 2024 ToolKit Pro. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    function convertText(type) {
+      const input = document.getElementById('textInput').value;
+      let output = '';
+      
+      try {
+        switch(type) {
+          case 'upper':
+            output = input.toUpperCase();
+            break;
+          case 'lower':
+            output = input.toLowerCase();
+            break;
+          case 'capitalize':
+            output = input.toLowerCase().split(' ').map(word => 
+              word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+            break;
+          case 'url':
+            output = encodeURIComponent(input);
+            break;
+          case 'decode':
+            output = decodeURIComponent(input);
+            break;
+        }
+      } catch (e) {
+        output = "Error: " + e.message;
+        alert("변환 중 오류가 발생했습니다: " + e.message);
+      }
+      
+      document.getElementById('textOutput').value = output;
+    }
+  </script>
+</body>
+</html>

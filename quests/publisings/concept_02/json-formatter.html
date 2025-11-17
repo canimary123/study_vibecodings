@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON 포맷터 - ToolKit Pro</title>
+  <meta name="description" content="JSON 데이터를 가독성 좋게 정렬(Pretty Print)하고, 문법 오류를 검증하며, 축소(Minify)합니다.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="index.html" class="text-decoration-none header-logo">
+        <div class="d-flex align-items-center gap-2">
+          <span style="font-size: 1.75rem;">⚡</span>
+          <h1>ToolKit Pro</h1>
+        </div>
+      </a>
+      
+      <nav class="d-none d-lg-flex align-items-center gap-4 main-nav">
+        <a href="password-generator.html" class="nav-link">🔒 비밀번호</a>
+        <a href="image-converter.html" class="nav-link">🖼️ 이미지</a>
+        <a href="text-converter.html" class="nav-link">📝 텍스트</a>
+        <a href="qr-generator.html" class="nav-link">📱 QR코드</a>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle nav-link">더보기 ▾</button>
+          <div class="dropdown-menu">
+            <a href="image-resize.html" class="dropdown-item">📐 이미지 리사이즈</a>
+            <a href="word-counter.html" class="dropdown-item">🔢 글자수 세기</a>
+            <a href="youtube-thumbnail.html" class="dropdown-item">🎬 유튜브 썸네일</a>
+            <a href="json-formatter.html" class="dropdown-item">{} JSON 포맷터</a>
+            <a href="pdf-converter.html" class="dropdown-item">📄 PDF 변환</a>
+          </div>
+        </div>
+      </nav>
+      
+      <button class="d-lg-none btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+        <span style="font-size: 1.5rem;">☰</span>
+      </button>
+    </div>
+    
+    <div id="mobileMenu" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+      <div class="d-flex flex-column gap-3">
+        <a href="password-generator.html" class="nav-link">🔒 비밀번호 생성기</a>
+        <a href="image-converter.html" class="nav-link">🖼️ 이미지 변환</a>
+        <a href="image-resize.html" class="nav-link">📐 이미지 리사이즈</a>
+        <a href="text-converter.html" class="nav-link">📝 텍스트 변환</a>
+        <a href="qr-generator.html" class="nav-link">📱 QR코드 생성</a>
+        <a href="word-counter.html" class="nav-link">🔢 글자수 세기</a>
+        <a href="youtube-thumbnail.html" class="nav-link">🎬 유튜브 썸네일</a>
+        <a href="json-formatter.html" class="nav-link">{} JSON 포맷터</a>
+        <a href="pdf-converter.html" class="nav-link">📄 PDF 변환</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container py-5">
+    <div class="breadcrumb-nav">
+      <a href="index.html">홈</a>
+      <span>/</span>
+      <span class="current">JSON 포맷터</span>
+    </div>
+    
+    <div class="main-tool-card">
+      <div class="text-center">
+        <h1>{} JSON 포맷터</h1>
+        <p>JSON 데이터를 가독성 좋게 정렬하고 문법을 검증하세요.</p>
+      </div>
+      
+      <div class="tool-content mt-5">
+        <div class="alert alert-info text-center">
+            JSON 포맷터 기능이 곧 추가될 예정입니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h3 class="mb-4 text-center">🔥 관련 도구</h3>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <a href="text-converter.html" class="text-decoration-none">
+              <div class="tool-card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
+                <h5>텍스트 변환기</h5>
+                <p class="small text-muted">대소문자, URL 인코딩 등 텍스트 조작</p>
+              </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <a href="word-counter.html" class="text-decoration-none">
+              <div class="tool-card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔢</div>
+                <h5>글자수 세기</h5>
+                <p class="small text-muted">실시간으로 글자, 단어, 공백 수 계산</p>
+              </div>
+            </a>
+        </div>
+      </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span style="font-size: 1.75rem;">⚡</span>
+          <h3 class="h5 mb-0 fw-bold">ToolKit Pro</h3>
+        </div>
+        <p class="text-muted small">
+          모든 작업을 한 곳에서.<br>
+          개발자를 위한 최고의 웹 도구 모음
+        </p>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <h4 class="h6 fw-bold mb-3">주요 도구</h4>
+        <div class="d-flex flex-column gap-2">
+          <a href="password-generator.html">비밀번호 생성기</a>
+          <a href="image-converter.html">이미지 변환</a>
+          <a href="qr-generator.html">QR코드 생성</a>
+          <a href="json-formatter.html">JSON 포맷터</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <h4 class="h6 fw-bold mb-3">문의</h4>
+        <p class="text-muted small">
+          📧 support@toolkit.pro<br>
+          💬 카카오톡: @toolkit
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      © 2024 ToolKit Pro. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/common.js"></script>
+</body>
+</html>

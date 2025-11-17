@@ -1,0 +1,242 @@
+/* --- Design System --- */
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Primary Colors */
+  --primary-purple: #7C3AED;
+  --primary-pink: #EC4899;
+  --primary-blue: #3B82F6;
+  
+  /* Gradient Backgrounds */
+  --bg-gradient: linear-gradient(135deg, #faf5ff 0%, #fce7f3 50%, #eff6ff 100%);
+  --card-gradient: linear-gradient(135deg, #faf5ff 0%, #fce7f3 100%);
+  --hero-gradient: linear-gradient(90deg, #7C3AED 0%, #EC4899 100%);
+  
+  /* Neutral Colors */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  
+  /* Semantic Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+/* --- Base & Typography --- */
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--gray-50);
+  color: var(--gray-700);
+}
+
+h1, .h1 { 
+  font-size: 2rem; 
+  font-weight: 800; 
+  background: var(--hero-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+h2, .h2 { font-size: 1.5rem; font-weight: 700; color: var(--gray-800); }
+h3, .h3 { font-size: 1.25rem; font-weight: 600; color: var(--gray-700); }
+h4, .h4 { font-size: 1rem; font-weight: 600; color: var(--gray-700); }
+
+/* --- Header --- */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(5px);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 0;
+}
+.header-logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    background: var(--hero-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+.main-nav .nav-link {
+  color: var(--gray-600);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+  color: var(--primary-purple);
+}
+.dropdown-toggle::after {
+    display: none; /* Hide default bootstrap arrow */
+}
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    padding: 0.5rem;
+    min-width: 220px;
+    border: 1px solid var(--gray-100);
+    display: none;
+}
+.dropdown-menu.show {
+    display: block;
+}
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--gray-700);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+}
+.dropdown-item:hover {
+    background-color: var(--gray-100);
+    color: var(--primary-purple);
+}
+
+/* --- Tool Card --- */
+.tool-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--gray-200);
+}
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+.tool-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--gray-800);
+}
+.tool-card p {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  background: var(--hero-gradient);
+  border-radius: 1.5rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-xl);
+}
+.hero-section h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: none;
+  -webkit-text-fill-color: unset;
+  text-fill-color: unset;
+}
+.hero-section p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.hero-button {
+    background: white;
+    color: var(--primary-purple);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+.hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* --- Main Tool Page --- */
+.breadcrumb-nav {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+.breadcrumb-nav a {
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.breadcrumb-nav a:hover {
+    color: var(--primary-purple);
+}
+.breadcrumb-nav span {
+    color: var(--gray-400);
+    margin: 0 0.5rem;
+}
+.breadcrumb-nav .current {
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
+.main-tool-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: var(--shadow-xl);
+}
+.main-tool-card h1 {
+    font-size: 2.5rem;
+}
+.main-tool-card p {
+    color: var(--gray-600);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* --- Footer --- */
+.main-footer {
+  background: white;
+  border-top: 1px solid var(--gray-200);
+  margin-top: 5rem;
+  padding: 4rem 0;
+}
+.main-footer h4 {
+    margin-bottom: 1rem;
+}
+.main-footer a {
+    color: var(--gray-600);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+.main-footer a:hover {
+    color: var(--primary-purple);
+}
+.footer-bottom {
+    border-top: 1px solid var(--gray-200);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 0.875rem;
+}

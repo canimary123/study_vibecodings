@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolKit Pro - All-in-One Toolbox</title>
+    
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Google Fonts: Pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- All CSS within <style> tag -->
+    <style>
+        /* 🎨 DESIGN SYSTEM */
+        :root {
+          /* Primary Colors */
+          --primary-purple: #7C3AED;
+          --primary-pink: #EC4899;
+          --primary-blue: #3B82F6;
+          
+          /* Gradient Backgrounds */
+          --bg-gradient: linear-gradient(135deg, #faf5ff 0%, #fce7f3 50%, #eff6ff 100%);
+          --card-gradient: linear-gradient(135deg, #faf5ff 0%, #fce7f3 100%);
+          --hero-gradient: linear-gradient(90deg, #7C3AED 0%, #EC4899 100%);
+          
+          /* Neutral Colors */
+          --gray-50: #f9fafb;
+          --gray-100: #f3f4f6;
+          --gray-200: #e5e7eb;
+          --gray-600: #4b5563;
+          --gray-700: #374151;
+          --gray-800: #1f2937;
+          
+          /* Semantic Colors */
+          --success: #10b981;
+          --warning: #f59e0b;
+          --error: #ef4444;
+          
+          /* Shadows */
+          --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+          --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+          --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+          --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        /* ✅ BASE & TYPOGRAPHY */
+        body {
+          background: var(--bg-gradient);
+          min-height: 100vh;
+          font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          margin: 0;
+          padding: 0;
+          color: var(--gray-700);
+        }
+
+        * {
+          transition: all 0.3s ease;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        h1 { 
+          font-size: 2rem; 
+          font-weight: 800; 
+          background: var(--hero-gradient);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+
+        h2 { font-size: 1.5rem; font-weight: 700; color: var(--gray-800); }
+        h3 { font-size: 1.25rem; font-weight: 600; color: var(--gray-700); }
+        
+        /* ✅ CARD STYLE */
+        .tool-card {
+          background: white;
+          border-radius: 1rem;
+          padding: 2rem;
+          box-shadow: var(--shadow-lg);
+          transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-xl);
+        }
+        
+        /* ✅ BUTTON STYLES */
+        .btn-primary-gradient {
+          background: var(--hero-gradient);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 0.75rem;
+          font-weight: 700;
+          border: none;
+          transition: all 0.3s ease;
+          display: inline-block;
+          text-align: center;
+        }
+
+        .btn-primary-gradient:hover {
+          box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
+          transform: translateY(-2px);
+          color: white;
+        }
+
+        .btn-secondary-themed {
+          background: white;
+          color: var(--primary-purple);
+          padding: 0.75rem 1.5rem;
+          border-radius: 0.75rem;
+          border: 2px solid var(--primary-purple);
+          font-weight: 600;
+        }
+
+        .btn-secondary-themed:hover {
+          background: #faf5ff;
+        }
+
+        /* ✅ INPUT FIELD STYLES */
+        input[type="text"], input[type="number"], input[type="url"], textarea, select {
+          border: 2px solid var(--gray-200);
+          border-radius: 0.75rem;
+          padding: 0.75rem 1rem;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          width: 100%;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+          outline: none;
+          border-color: var(--primary-purple);
+          box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+        
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: var(--gray-200);
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            cursor: pointer;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            cursor: pointer;
+        }
+
+        /* ✅ TABNAVIGATION */
+        .tool-tab {
+            background: rgba(255,255,255,0.6);
+            color: var(--gray-600);
+            padding: 1.25rem 2rem;
+            border-radius: 1rem;
+            border: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .tool-tab.active {
+            background: white;
+            color: var(--primary-purple);
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+        .tool-tab:not(.active):hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            color: var(--primary-purple);
+        }
+        .hot-badge {
+            background: var(--error);
+            color: white;
+            padding: 0.25rem 0.625rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        /* ✅ UTILITIES */
+        .main-tool-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+        }
+        .result-box {
+            background: var(--card-gradient);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .label-text {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.75rem;
+        }
+        .file-drop-zone {
+            border: 2px dashed var(--gray-200);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            background-color: var(--gray-50);
+        }
+        .file-drop-zone:hover {
+            background-color: var(--gray-100);
+            border-color: var(--primary-purple);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER (STICKY) -->
+    <header style="position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); padding: 1rem 0;">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span style="font-size: 1.75rem;">⚡</span>
+            <h1 style="margin: 0; font-size: 1.5rem;">ToolKit Pro</h1>
+          </div>
+          <div class="d-none d-md-flex gap-4">
+            <div class="d-flex align-items-center gap-2">
+              <span style="color: var(--error);">❤️</span>
+              <span style="color: var(--gray-600); font-size: 0.875rem;">12,847 사용자</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span>📤</span>
+              <span style="color: var(--gray-600); font-size: 0.875rem;">0 공유</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container py-4">
+        <!-- 2. HERO BANNER -->
+        <div style="background: var(--hero-gradient); border-radius: 1.5rem; padding: 2.5rem; margin: 2rem 0; box-shadow: var(--shadow-xl);">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span style="font-size: 1.5rem;">📈</span>
+                <span style="color: white; font-weight: 600;">🔥 실시간 인기</span>
+              </div>
+              <h2 style="color: white; font-size: 2rem; margin-bottom: 0.5rem; font-weight: 800;">
+                오늘만 1,247명이 사용중!
+              </h2>
+              <p style="color: rgba(255,255,255,0.9);">
+                친구에게 공유하고 프리미엄 기능 무료로 받기
+              </p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+              <button class="btn-secondary-themed" style="background: white; color: var(--primary-purple); padding: 1rem 2rem; font-weight: 700;">
+                지금 공유하기 →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TOOL TABNAVIGATION -->
+        <div class="d-flex gap-2 mb-4 overflow-auto pb-2" style="flex-wrap: nowrap;">
+          <button class="tool-tab active" data-tool="password">🔒 비밀번호 생성기<span class="hot-badge">HOT</span></button>
+          <button class="tool-tab" data-tool="image-convert">🖼️ 이미지 변환</button>
+          <button class="tool-tab" data-tool="image-resize">📐 이미지 리사이즈</button>
+          <button class="tool-tab" data-tool="text-convert">📝 텍스트 변환</button>
+          <button class="tool-tab" data-tool="qr">📱 QR코드</button>
+          <button class="tool-tab" data-tool="word-count">🔢 글자수 세기</button>
+          <button class="tool-tab" data-tool="youtube">🎬 유튜브 썸네일</button>
+          <button class="tool-tab" data-tool="json">{} JSON 포맷터</button>
+          <button class="tool-tab" data-tool="pdf">📄 PDF 변환</button>
+        </div>
+
+        <!-- 4. AD SENSE AREA -->
+        <div style="background: var(--gray-100); border: 2px dashed var(--gray-200); border-radius: 1rem; padding: 4rem 2rem; text-align: center; margin: 2rem 0;">
+          <p style="color: #9ca3af; margin: 0; font-weight: 600;">Google AdSense 광고 영역</p>
+        </div>
+
+        <!-- 5. TOOL SECTIONS -->
+        <div id="tool-sections-container">
+            
+            <!-- 5.1. PASSWORD GENERATOR -->
+            <div id="tool-password" class="tool-section" style="display: block;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">🔒 최강 비밀번호 생성기</h2>
+                <div class="mb-4">
+                  <label class="label-text">사이트 종류 선택</label>
+                  <div class="row g-2 g-md-3">
+                    <div class="col-6 col-md-3"><button onclick="generatePassword('general')" class="btn-secondary-themed w-100">🌐 일반</button></div>
+                    <div class="col-6 col-md-3"><button onclick="generatePassword('bank')" class="btn-secondary-themed w-100">🏦 은행</button></div>
+                    <div class="col-6 col-md-3"><button onclick="generatePassword('sns')" class="btn-secondary-themed w-100">💬 SNS</button></div>
+                    <div class="col-6 col-md-3"><button onclick="generatePassword('shop')" class="btn-secondary-themed w-100">🛒 쇼핑몰</button></div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="label-text">비밀번호 길이: <span id="lengthValue">16</span></label>
+                  <input type="range" id="pwLength" min="8" max="32" value="16" oninput="document.getElementById('lengthValue').textContent = this.value">
+                </div>
+                <div class="mb-4">
+                  <div class="d-flex gap-3 flex-wrap">
+                    <label class="d-flex align-items-center gap-2"><input type="checkbox" id="useUpper" checked><span>대문자 (A-Z)</span></label>
+                    <label class="d-flex align-items-center gap-2"><input type="checkbox" id="useLower" checked><span>소문자 (a-z)</span></label>
+                    <label class="d-flex align-items-center gap-2"><input type="checkbox" id="useNumber" checked><span>숫자 (0-9)</span></label>
+                    <label class="d-flex align-items-center gap-2"><input type="checkbox" id="useSymbol" checked><span>특수문자 (!@#$)</span></label>
+                  </div>
+                </div>
+                <div class="result-box">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span style="font-size: 0.875rem; font-weight: 600; color: var(--gray-700);">생성된 비밀번호</span>
+                    <span id="strength" style="font-size: 0.875rem; font-weight: 700; color: var(--success);">보안 강도: 95%</span>
+                  </div>
+                  <div class="d-flex gap-3">
+                    <input type="text" id="passwordResult" value="생성 버튼을 클릭하세요" readonly style="flex: 1; background: white; border: 2px solid #e9d5ff; font-family: 'Courier New', monospace; font-size: 1.125rem;">
+                    <button onclick="copyToClipboard('#passwordResult')" style="background: var(--primary-purple); color: white; padding: 1rem; border: none; border-radius: 0.75rem;">📋</button>
+                  </div>
+                </div>
+                <div style="height: 0.75rem; background: var(--gray-200); border-radius: 9999px; overflow: hidden; margin-bottom: 1.5rem;">
+                  <div id="strengthBar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                </div>
+                <div class="d-flex gap-3">
+                  <button onclick="generatePassword('general')" class="btn-primary-gradient flex-grow-1">🔄 새로 생성하기</button>
+                  <button style="background: var(--primary-blue); color: white; padding: 1rem 1.5rem; border: none; border-radius: 0.75rem; font-weight: 700;">📤 공유</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.2. IMAGE CONVERTER -->
+            <div id="tool-image-convert" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">🖼️ 이미지 변환/압축</h2>
+                <div class="file-drop-zone">
+                  <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="loadImage(event)">
+                  <label for="imageInput" style="cursor: pointer;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📁</div>
+                    <p style="color: #6b7280; font-weight: 600;">클릭하여 이미지 선택</p>
+                    <p style="color: #9ca3af; font-size: 0.875rem;">JPG, PNG, WebP 지원</p>
+                  </label>
+                </div>
+                <div id="imagePreview" style="display: none; margin-bottom: 2rem; text-align: center;">
+                  <img id="previewImg" style="max-width: 100%; border-radius: 1rem; box-shadow: var(--shadow-lg);">
+                </div>
+                <div class="mb-4">
+                  <label class="label-text">변환할 형식</label>
+                  <select id="convertFormat">
+                    <option value="jpeg">JPEG</option>
+                    <option value="png">PNG</option>
+                    <option value="webp">WebP</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label class="label-text">압축 품질: <span id="qualityValue">80</span>%</label>
+                  <input type="range" id="quality" min="1" max="100" value="80" oninput="document.getElementById('qualityValue').textContent = this.value">
+                </div>
+                <button onclick="convertImage()" class="btn-primary-gradient w-100">🔄 변환하기</button>
+              </div>
+            </div>
+
+            <!-- 5.3. IMAGE RESIZER -->
+            <div id="tool-image-resize" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">📐 이미지 리사이즈</h2>
+                <div class="file-drop-zone">
+                  <input type="file" id="resizeInput" accept="image/*" style="display: none;" onchange="loadResizeImage(event)">
+                  <label for="resizeInput" style="cursor: pointer;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📁</div>
+                    <p style="color: #6b7280; font-weight: 600;">클릭하여 이미지 선택</p>
+                  </label>
+                </div>
+                 <div id="resizePreview" style="display: none; margin-bottom: 2rem; text-align: center;">
+                  <img id="resizePreviewImg" style="max-width: 100%; border-radius: 1rem; box-shadow: var(--shadow-lg);">
+                </div>
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="label-text">너비 (px)</label>
+                    <input type="number" id="resizeWidth" placeholder="800">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="label-text">높이 (px)</label>
+                    <input type="number" id="resizeHeight" placeholder="600">
+                  </div>
+                </div>
+                <label class="d-flex align-items-center gap-2 mb-4"><input type="checkbox" id="keepRatio" checked><span>비율 유지</span></label>
+                <button onclick="resizeImage()" class="btn-primary-gradient w-100">📐 리사이즈하기</button>
+              </div>
+            </div>
+
+            <!-- 5.4. TEXT CONVERTER -->
+            <div id="tool-text-convert" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">📝 텍스트 변환기</h2>
+                <textarea id="textInput" placeholder="변환할 텍스트를 입력하세요" style="height: 150px; margin-bottom: 1.5rem;"></textarea>
+                <div class="row g-2 g-md-3 mb-4">
+                  <div class="col-6 col-md-3"><button onclick="convertText('upper')" class="btn-secondary-themed w-100">대문자</button></div>
+                  <div class="col-6 col-md-3"><button onclick="convertText('lower')" class="btn-secondary-themed w-100">소문자</button></div>
+                  <div class="col-6 col-md-3"><button onclick="convertText('capitalize')" class="btn-secondary-themed w-100">첫글자 대문자</button></div>
+                  <div class="col-6 col-md-3"><button onclick="convertText('url')" class="btn-secondary-themed w-100">URL 인코딩</button></div>
+                </div>
+                <textarea id="textOutput" readonly placeholder="변환 결과" style="height: 150px; background: var(--card-gradient);"></textarea>
+              </div>
+            </div>
+
+            <!-- 5.5. QR CODE GENERATOR -->
+            <div id="tool-qr" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">📱 QR 코드 생성기</h2>
+                <div class="mb-4">
+                  <label class="label-text">URL 또는 텍스트 입력</label>
+                  <input type="text" id="qrText" placeholder="https://example.com">
+                </div>
+                <button onclick="generateQR()" class="btn-primary-gradient w-100 mb-4">📱 QR 코드 생성</button>
+                <div id="qrResult" class="result-box" style="display: none; text-align: center; padding: 2rem;">
+                  <div id="qrcode" style="display: inline-block; background: white; padding: 1rem; border-radius: 1rem;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 5.6. WORD COUNTER -->
+            <div id="tool-word-count" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">🔢 글자수 세기</h2>
+                <textarea id="wordCountInput" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..." style="height: 250px; margin-bottom: 1.5rem;"></textarea>
+                <div class="result-box">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div style="font-size: 0.8rem; color: var(--gray-600);">글자 수</div>
+                            <div id="charCount" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-purple);">0</div>
+                        </div>
+                        <div class="col-4">
+                            <div style="font-size: 0.8rem; color: var(--gray-600);">단어 수</div>
+                            <div id="wordCount" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-purple);">0</div>
+                        </div>
+                        <div class="col-4">
+                            <div style="font-size: 0.8rem; color: var(--gray-600);">줄 수</div>
+                            <div id="lineCount" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-purple);">0</div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.7. YOUTUBE THUMBNAIL -->
+            <div id="tool-youtube" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">🎬 유튜브 썸네일 추출</h2>
+                <div class="mb-4">
+                  <label class="label-text">유튜브 동영상 URL 입력</label>
+                  <input type="url" id="youtubeUrl" placeholder="https://www.youtube.com/watch?v=...">
+                </div>
+                <button onclick="extractThumbnail()" class="btn-primary-gradient w-100 mb-4">🎬 썸네일 추출</button>
+                <div id="thumbnailResult" style="display: none;">
+                    <img id="thumbnailImage" src="" style="width: 100%; border-radius: 1rem; box-shadow: var(--shadow-lg); margin-bottom: 1.5rem;">
+                    <div class="row g-2">
+                        <div class="col-6 col-md-3"><a id="thumbMax" href="#" download="thumbnail_max.jpg" class="btn-secondary-themed w-100 d-block text-center text-decoration-none">최대 해상도</a></div>
+                        <div class="col-6 col-md-3"><a id="thumbHq" href="#" download="thumbnail_hq.jpg" class="btn-secondary-themed w-100 d-block text-center text-decoration-none">고화질</a></div>
+                        <div class="col-6 col-md-3"><a id="thumbMq" href="#" download="thumbnail_mq.jpg" class="btn-secondary-themed w-100 d-block text-center text-decoration-none">중간 화질</a></div>
+                        <div class="col-6 col-md-3"><a id="thumbSd" href="#" download="thumbnail_sd.jpg" class="btn-secondary-themed w-100 d-block text-center text-decoration-none">기본 화질</a></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.8. JSON FORMATTER -->
+            <div id="tool-json" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">{} JSON 포맷터</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label class="label-text">JSON 입력</label>
+                        <textarea id="jsonInput" placeholder='{"key":"value"}' style="height: 300px; font-family: 'Courier New', monospace;"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="label-text">포맷팅 결과</label>
+                        <textarea id="jsonOutput" readonly style="height: 300px; background: var(--card-gradient); font-family: 'Courier New', monospace;"></textarea>
+                    </div>
+                </div>
+                <button onclick="formatJSON()" class="btn-primary-gradient w-100 mt-4">{} 포맷팅</button>
+              </div>
+            </div>
+
+            <!-- 5.9. PDF CONVERTER -->
+            <div id="tool-pdf" class="tool-section" style="display: none;">
+              <div class="main-tool-card">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">📄 PDF 변환 (텍스트 → PDF)</h2>
+                <label class="label-text">PDF로 변환할 텍스트를 입력하세요</label>
+                <textarea id="pdfTextInput" placeholder="이곳에 입력된 텍스트가 PDF 파일로 변환됩니다." style="height: 300px; margin-bottom: 1.5rem;"></textarea>
+                <button onclick="convertToPdf()" class="btn-primary-gradient w-100">📄 PDF로 저장하기</button>
+              </div>
+            </div>
+        </div>
+
+        <!-- 8. VIRAL SHARING SECTION -->
+        <div style="background: #fef3c7; border: 2px solid #fde68a; border-radius: 1rem; padding: 1.5rem; margin-top: 3rem;">
+          <div class="d-flex flex-column flex-md-row gap-3 align-items-center">
+            <div style="font-size: 3rem;">🎁</div>
+            <div style="flex: 1;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; color: #92400e;">
+                친구에게 공유하면 프리미엄 기능 무료!
+              </h3>
+              <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem;">
+                3명에게 공유하면 무제한 비밀번호 히스토리 저장 기능이 열려요
+              </p>
+              <div class="d-flex gap-2 align-items-center">
+                <div style="flex: 1; height: 0.5rem; background: var(--gray-200); border-radius: 9999px; overflow: hidden;">
+                    <div style="width: 33%; height: 100%; background: var(--primary-purple);"></div>
+                </div>
+                <span style="font-size: 0.875rem; color: var(--gray-600); margin-left: 0.5rem; font-weight: 600;">1/3 달성</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. RELATED TOOLS -->
+        <div style="margin-top: 3rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">
+            🔥 지금 핫한 다른 도구들
+          </h3>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="tool-card" style="cursor: pointer; background: var(--card-gradient);" onclick="showTool('qr')">
+                <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">📱</div>
+                <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;">QR코드 생성기</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">2.3k 명이 사용중</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="tool-card" style="cursor: pointer; background: var(--card-gradient);" onclick="showTool('youtube')">
+                <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🎬</div>
+                <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;">유튜브 썸네일 추출</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">1.8k 명이 사용중</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="tool-card" style="cursor: pointer; background: var(--card-gradient);" onclick="showTool('json')">
+                <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">{}</div>
+                <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;">JSON 포맷터</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">1.5k 명이 사용중</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. FOOTER CTA -->
+        <div style="background: linear-gradient(90deg, #3B82F6, #7C3AED); border-radius: 1.5rem; padding: 3rem; text-align: center; margin-top: 3rem; margin-bottom: 2rem;">
+          <h3 style="color: white; font-size: 1.75rem; margin-bottom: 0.75rem; font-weight: 800;">
+            💎 프리미엄으로 업그레이드
+          </h3>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
+            광고 없이, 무제한으로 모든 도구를 사용하세요
+          </p>
+          <button style="background: white; color: var(--primary-purple); padding: 1rem 2.5rem; border: none; border-radius: 0.75rem; font-weight: 700; font-size: 1rem;">
+            월 4,900원 시작하기
+          </button>
+        </div>
+    </main>
+
+    <!-- External JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- All JavaScript Logic -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- TAB SWITCHING LOGIC ---
+        const toolTabs = document.querySelectorAll('.tool-tab');
+        const toolSections = document.querySelectorAll('.tool-section');
+
+        function showTool(toolName) {
+            // Hide all sections
+            toolSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            // Deactivate all tabs
+            toolTabs.forEach(t => {
+                t.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById('tool-' + toolName);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+            // Activate target tab
+            const targetTab = document.querySelector(`.tool-tab[data-tool="${toolName}"]`);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+        }
+        
+        window.showTool = showTool; // Make it globally accessible for onclick attributes
+
+        toolTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const toolName = this.dataset.tool;
+                showTool(toolName);
+            });
+        });
+
+        // --- GENERAL HELPER ---
+        window.copyToClipboard = function(elementSelector) {
+            const input = document.querySelector(elementSelector);
+            if(navigator.clipboard) {
+                navigator.clipboard.writeText(input.value).then(() => {
+                    alert('클립보드에 복사되었습니다!');
+                });
+            } else {
+                input.select();
+                document.execCommand('copy');
+                alert('클립보드에 복사되었습니다!');
+            }
+        }
+
+        // --- TOOL LOGIC ---
+
+        // 1. PASSWORD GENERATOR
+        window.generatePassword = function(type) {
+            const length = parseInt(document.getElementById('pwLength').value);
+            const useUpper = document.getElementById('useUpper').checked;
+            const useLower = document.getElementById('useLower').checked;
+            const useNumber = document.getElementById('useNumber').checked;
+            const useSymbol = document.getElementById('useSymbol').checked;
+            
+            let chars = '';
+            if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
+            if (useNumber) chars += '0123456789';
+            if (useSymbol) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (chars === '') {
+                alert('최소 1개 이상의 옵션을 선택하세요');
+                return;
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            document.getElementById('passwordResult').value = password;
+            
+            let strength = 0;
+            if (useUpper) strength += 20;
+            if (useLower) strength += 10;
+            if (useNumber) strength += 20;
+            if (useSymbol) strength += 25;
+            if (length >= 12) strength += 15;
+            if (length >= 16) strength += 10;
+            strength = Math.min(100, strength);
+            
+            const strengthEl = document.getElementById('strength');
+            const strengthBarEl = document.getElementById('strengthBar');
+            
+            strengthEl.textContent = `보안 강도: ${strength}%`;
+            strengthBarEl.style.width = strength + '%';
+            
+            if (strength >= 80) {
+                strengthEl.style.color = 'var(--success)';
+                strengthBarEl.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+            } else if (strength >= 50) {
+                strengthEl.style.color = 'var(--warning)';
+                strengthBarEl.style.background = 'linear-gradient(90deg, #f59e0b, #fbbf24)';
+            } else {
+                strengthEl.style.color = 'var(--error)';
+                strengthBarEl.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+            }
+        }
+        // Initial password generation
+        generatePassword('general');
+
+        // 2. IMAGE CONVERTER
+        let loadedImage = null;
+        window.loadImage = function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                loadedImage = new Image();
+                loadedImage.onload = () => {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                };
+                loadedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        window.convertImage = function() {
+            if (!loadedImage) {
+                alert('이미지를 먼저 선택하세요');
+                return;
+            }
+            
+            const format = document.getElementById('convertFormat').value;
+            const quality = parseInt(document.getElementById('quality').value) / 100;
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = loadedImage.width;
+            canvas.height = loadedImage.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(loadedImage, 0, 0);
+            
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `converted-image.${format}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                alert('이미지 변환이 완료되어 다운로드를 시작합니다.');
+            }, `image/${format}`, quality);
+        }
+
+        // 3. IMAGE RESIZER
+        let resizeLoadedImage = null;
+        let originalWidth, originalHeight;
+        const resizeWidthInput = document.getElementById('resizeWidth');
+        const resizeHeightInput = document.getElementById('resizeHeight');
+        const keepRatioCheckbox = document.getElementById('keepRatio');
+
+        window.loadResizeImage = function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                resizeLoadedImage = new Image();
+                resizeLoadedImage.onload = () => {
+                    originalWidth = resizeLoadedImage.width;
+                    originalHeight = resizeLoadedImage.height;
+                    resizeWidthInput.value = originalWidth;
+                    resizeHeightInput.value = originalHeight;
+                    document.getElementById('resizePreviewImg').src = e.target.result;
+                    document.getElementById('resizePreview').style.display = 'block';
+                };
+                resizeLoadedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        resizeWidthInput.addEventListener('input', () => {
+            if (keepRatioCheckbox.checked && originalWidth) {
+                const ratio = originalHeight / originalWidth;
+                resizeHeightInput.value = Math.round(resizeWidthInput.value * ratio);
+            }
+        });
+
+        resizeHeightInput.addEventListener('input', () => {
+            if (keepRatioCheckbox.checked && originalHeight) {
+                const ratio = originalWidth / originalHeight;
+                resizeWidthInput.value = Math.round(resizeHeightInput.value * ratio);
+            }
+        });
+
+        window.resizeImage = function() {
+            if (!resizeLoadedImage) {
+                alert('이미지를 먼저 선택하세요');
+                return;
+            }
+            const width = parseInt(resizeWidthInput.value);
+            const height = parseInt(resizeHeightInput.value);
+            if (!width || !height || width <= 0 || height <= 0) {
+                alert('유효한 너비와 높이를 입력하세요.');
+                return;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(resizeLoadedImage, 0, 0, width, height);
+
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `resized-image.png`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                alert('이미지 리사이즈가 완료되어 다운로드를 시작합니다.');
+            }, 'image/png');
+        }
+
+        // 4. TEXT CONVERTER
+        window.convertText = function(type) {
+            const input = document.getElementById('textInput').value;
+            let output = '';
+            
+            switch(type) {
+                case 'upper': output = input.toUpperCase(); break;
+                case 'lower': output = input.toLowerCase(); break;
+                case 'capitalize': output = input.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '); break;
+                case 'url': output = encodeURIComponent(input); break;
+            }
+            document.getElementById('textOutput').value = output;
+        }
+
+        // 5. QR CODE GENERATOR
+        let qrcode = null;
+        window.generateQR = function() {
+            const text = document.getElementById('qrText').value;
+            if (!text) {
+                alert('URL 또는 텍스트를 입력하세요');
+                return;
+            }
+            
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = '';
+            document.getElementById('qrResult').style.display = 'block';
+            
+            qrcode = new QRCode(qrContainer, {
+                text: text,
+                width: 256,
+                height: 256,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        }
+
+        // 6. WORD COUNTER
+        const wordCountInput = document.getElementById('wordCountInput');
+        wordCountInput.addEventListener('input', () => {
+            const text = wordCountInput.value;
+            document.getElementById('charCount').textContent = text.length;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('wordCount').textContent = words.length === 1 && words[0] === '' ? 0 : words.length;
+            document.getElementById('lineCount').textContent = text.split('\n').length;
+        });
+
+        // 7. YOUTUBE THUMBNAIL EXTRACTOR
+        window.extractThumbnail = function() {
+            const url = document.getElementById('youtubeUrl').value;
+            let videoId = null;
+            
+            const regexes = [
+                /(?:https?::\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)/,
+                /(?:https?::\/\/)?(?:www\.)?youtu\.be\/([^?]+)/
+            ];
+
+            for (const regex of regexes) {
+                const match = url.match(regex);
+                if (match && match[1]) {
+                    videoId = match[1];
+                    break;
+                }
+            }
+
+            if (videoId) {
+                const baseUrl = `https://img.youtube.com/vi/${videoId}/`;
+                document.getElementById('thumbnailImage').src = baseUrl + 'maxresdefault.jpg';
+                document.getElementById('thumbMax').href = baseUrl + 'maxresdefault.jpg';
+                document.getElementById('thumbHq').href = baseUrl + 'hqdefault.jpg';
+                document.getElementById('thumbMq').href = baseUrl + 'mqdefault.jpg';
+                document.getElementById('thumbSd').href = baseUrl + 'sddefault.jpg';
+                document.getElementById('thumbnailResult').style.display = 'block';
+            } else {
+                alert('유효한 유튜브 URL을 입력해주세요.');
+            }
+        }
+
+        // 8. JSON FORMATTER
+        window.formatJSON = function() {
+            const input = document.getElementById('jsonInput').value;
+            const outputEl = document.getElementById('jsonOutput');
+            try {
+                const parsed = JSON.parse(input);
+                outputEl.value = JSON.stringify(parsed, null, 4);
+                outputEl.style.borderColor = 'var(--gray-200)';
+            } catch (e) {
+                outputEl.value = "잘못된 JSON 형식입니다.\n\n" + e;
+                outputEl.style.borderColor = 'var(--error)';
+            }
+        }
+
+        // 9. PDF CONVERTER
+        window.convertToPdf = function() {
+            const text = document.getElementById('pdfTextInput').value;
+            if (!text.trim()) {
+                alert('PDF로 변환할 텍스트를 입력하세요.');
+                return;
+            }
+            const element = document.createElement('div');
+            element.style.whiteSpace = 'pre-wrap';
+            element.style.padding = '20mm';
+            element.style.fontFamily = 'Pretendard, sans-serif';
+            element.innerText = text;
+
+            const opt = {
+              margin:       [20, 20, 20, 20],
+              filename:     'converted-document.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 2 },
+              jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().from(element).set(opt).save();
+        }
+    });
+    </script>
+</body>
+</html>

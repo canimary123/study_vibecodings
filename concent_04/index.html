@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolKit Pro - 개발자를 위한 최고의 웹 도구</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap');
+
+    * { transition: all 0.3s ease; }
+
+    body {
+      background: linear-gradient(135deg, #faf5ff 0%, #fce7f3 50%, #eff6ff 100%);
+      min-height: 100vh;
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    h1 { 
+      font-size: 2rem; 
+      font-weight: 800; 
+      background: linear-gradient(90deg, #7C3AED, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h2 { font-size: 1.5rem; font-weight: 700; color: #1f2937; }
+    h3 { font-size: 1.25rem; font-weight: 600; color: #374151; }
+
+    .tool-card-link {
+        text-decoration: none;
+    }
+    .tool-card {
+        background: white; 
+        border-radius: 1rem; 
+        padding: 2rem; 
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05); 
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    .tool-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header style="position: sticky; top: 0; z-index: 1000; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 0;">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="index.html" style="text-decoration: none;">
+          <div class="d-flex align-items-center gap-2">
+            <span style="font-size: 1.75rem;">⚡</span>
+            <h1 style="margin: 0; font-size: 1.5rem;">ToolKit Pro</h1>
+          </div>
+        </a>
+        <nav class="d-none d-md-flex gap-3">
+          <a href="password-generator.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">🔒 비밀번호</a>
+          <a href="image-converter.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">🖼️ 이미지</a>
+          <a href="text-converter.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">📝 텍스트</a>
+          <a href="qr-generator.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">📱 QR</a>
+          <a href="json-formatter.html" style="color: #6b7280; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem;">{} JSON</a>
+        </nav>
+        <div class="d-flex gap-3">
+          <span style="color: #6b7280; font-size: 0.875rem;">❤️ 12,847 사용자</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container" style="padding: 4rem 1rem;">
+    <div style="background: linear-gradient(90deg, #7C3AED, #EC4899); border-radius: 1.5rem; padding: 4rem 2rem; text-align: center; margin-bottom: 3rem; box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.3);">
+      <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem; -webkit-text-fill-color: white;">⚡ ToolKit Pro</h1>
+      <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem; margin-bottom: 2rem;">개발과 일상의 생산성을 높여주는 9가지 필수 웹 도구 모음</p>
+      <a href="password-generator.html" style="background: white; color: #7C3AED; padding: 1rem 2.5rem; border-radius: 0.75rem; font-weight: 700; text-decoration: none; display: inline-block;">지금 시작하기 →</a>
+    </div>
+    
+    <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">🔥 모든 도구</h2>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><a href="password-generator.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div><h3 style="color: #1f2937;">비밀번호 생성기</h3><p style="color: #6b7280; margin-bottom: 1rem;">강력한 비밀번호를 자동으로 생성</p><span style="background: #fef3c7; color: #d97706; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600;">HOT</span></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="image-converter.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">🖼️</div><h3 style="color: #1f2937;">이미지 변환</h3><p style="color: #6b7280;">JPG, PNG, WebP 변환/압축</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="image-resize.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">📐</div><h3 style="color: #1f2937;">이미지 리사이즈</h3><p style="color: #6b7280;">원하는 크기로 이미지 조절</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="text-converter.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">📝</div><h3 style="color: #1f2937;">텍스트 변환</h3><p style="color: #6b7280;">대소문자, URL 인코딩 등</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="qr-generator.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">📱</div><h3 style="color: #1f2937;">QR코드 생성</h3><p style="color: #6b7280;">URL 또는 텍스트를 QR코드로</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="word-counter.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">🔢</div><h3 style="color: #1f2937;">글자수 세기</h3><p style="color: #6b7280;">실시간으로 글자, 단어 수 계산</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="youtube-thumbnail.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">🎬</div><h3 style="color: #1f2937;">유튜브 썸네일 추출</h3><p style="color: #6b7280;">동영상 썸네일을 고화질로 저장</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="json-formatter.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">{}</div><h3 style="color: #1f2937;">JSON 포맷터</h3><p style="color: #6b7280;">JSON 데이터 포맷/압축/검증</p></div></a></div>
+      <div class="col-md-6 col-lg-4"><a href="pdf-converter.html" class="tool-card-link"><div class="tool-card"><div style="font-size: 3rem; margin-bottom: 1rem;">📄</div><h3 style="color: #1f2937;">PDF 변환</h3><p style="color: #6b7280;">입력한 텍스트를 PDF로 변환</p></div></a></div>
+    </div>
+  </main>
+  
+  <footer style="background: white; border-top: 1px solid #e5e7eb; margin-top: 4rem; padding: 3rem 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span style="font-size: 1.5rem;">⚡</span>
+            <h3 style="margin: 0; font-size: 1.25rem; color: #1f2937;">ToolKit Pro</h3>
+          </div>
+          <p style="color: #6b7280; font-size: 0.875rem;">모든 작업을 한 곳에서</p>
+        </div>
+        <div class="col-md-6">
+          <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">주요 도구</h4>
+          <div class="d-flex flex-column gap-2">
+            <a href="password-generator.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">비밀번호 생성기</a>
+            <a href="image-converter.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">이미지 변환</a>
+            <a href="qr-generator.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">QR코드 생성</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.875rem;">
+        © 2024 ToolKit Pro. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
