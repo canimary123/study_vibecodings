@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metal Luxe - 프리미엄 금속 악세사리</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-gold: #d4af37;
+            --color-silver: #c0c0c0;
+            --color-dark: #121212;
+            --color-light-dark: #1e1e1e;
+        }
+
+        body {
+            background-color: var(--color-dark);
+            color: var(--color-silver);
+            font-family: 'Noto Sans KR', 'Montserrat', sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--color-gold) !important;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: var(--color-silver) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        
+        .btn-outline-gold {
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+        }
+
+        .btn-outline-gold:hover {
+            color: var(--color-dark);
+            background-color: var(--color-gold);
+            border-color: var(--color-gold);
+            box-shadow: 0 0 10px var(--color-gold);
+        }
+
+        .jumbotron {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            padding: 8rem 2rem;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .jumbotron .display-4 {
+            font-weight: 700;
+            background: -webkit-linear-gradient(45deg, var(--color-gold), var(--color-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .jumbotron .lead {
+            color: #aaa;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #b38728, var(--color-gold));
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        h2 {
+            color: white;
+            font-weight: bold;
+        }
+
+        .card {
+            background-color: var(--color-light-dark);
+            border: 1px solid #333;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px rgba(212, 175, 55, 0.3);
+            border-color: var(--color-gold);
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            color: white;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #aaa;
+        }
+
+        footer {
+            background-color: #101010;
+            color: #777;
+        }
+
+        footer h5 {
+            color: var(--color-gold);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        footer .text-center {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Metal Luxe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections.html">컬렉션</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">제품</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2 bg-dark text-white border-secondary" type="search" placeholder="제품 검색" aria-label="Search">
+                    <button class="btn btn-outline-gold" type="submit">검색</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="margin-top: 80px;">
+        <section class="jumbotron text-center p-5 rounded mb-5 my-4">
+            <h1 class="display-4">시간을 초월하는 아름다움, 금속의 미학</h1>
+            <p class="lead my-3">최고급 금속으로 빚어낸 장인정신. Metal Luxe는 당신의 모든 순간을 빛나게 할 프리미엄 주얼리를 선보입니다.</p>
+            <a href="collections.html" class="btn btn-primary btn-lg mt-3">신상품 컬렉션 보기</a>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="text-center mb-4">베스트셀러</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1611591437281-462bf4d3ab45?q=80&w=1974&auto=format&fit=crop" class="card-img-top" alt="실버 목걸이">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">스털링 실버 체인 네크리스</h5>
+                            <p class="card-text">순도 92.5% 스털링 실버로 제작되어 미니멀하면서도 우아한 광택을 자랑합니다.</p>
+                            <a href="product-detail.html" class="btn btn-outline-gold mt-auto">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1974&auto=format&fit=crop" class="card-img-top" alt="골드 반지">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">18K 골드 시그넷 링</h5>
+                            <p class="card-text">영원한 가치를 상징하는 18K 골드. 클래식한 디자인으로 품격을 더합니다.</p>
+                            <a href="product-detail.html" class="btn btn-outline-gold mt-auto">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1620625515032-6ed0c141345b?q=80&w=1974&auto=format&fit=crop" class="card-img-top" alt="티타늄 팔찌">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">모던 티타늄 브레이슬릿</h5>
+                            <p class="card-text">가볍고 견고한 티타늄 소재로 제작된 현대적인 감각의 브레이슬릿입니다.</p>
+                            <a href="product-detail.html" class="btn btn-outline-gold mt-auto">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center text-lg-start mt-auto">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Metal Luxe</h5>
+                    <p>
+                        최고급 금속 소재로 제작된 프리미엄 핸드메이드 악세사리. 당신의 일상에 특별한 가치를 더합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3">
+            © 2025 Metal Luxe. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
