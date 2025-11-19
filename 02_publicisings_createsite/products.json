@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "비밀번호 생성기",
+    "category": "보안",
+    "price": 0,
+    "description": "강력한 비밀번호를 자동으로 생성합니다."
+  },
+  {
+    "id": 2,
+    "name": "이미지 변환",
+    "category": "이미지",
+    "price": 0,
+    "description": "JPG, PNG, WebP 형식으로 이미지를 변환/압축합니다."
+  },
+  {
+    "id": 3,
+    "name": "QR코드 생성",
+    "category": "유틸리티",
+    "price": 0,
+    "description": "URL을 QR코드로 변환합니다."
+  }
+]

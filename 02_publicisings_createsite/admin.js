@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productDescriptionInput = document.getElementById('product-description');
 
     let products = [];
-    const PRODUCTS_STORAGE_KEY = 'marketplace_products';
+    const PRODUCTS_STORAGE_KEY = 'toolkit_products'; // Changed key for this project
 
     // Load products from localStorage or fetch from JSON file
     const loadProducts = async () => {
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${product.price.toLocaleString()}원</td>
                 <td>${product.description}</td>
                 <td>
-                    <button class="btn btn-sm btn-secondary edit-btn" data-id="${product.id}">수정</button>
-                    <button class="btn btn-sm btn-danger delete-btn" data-id="${product.id}">삭제</button>
+                    <button class="btn btn-sm btn-secondary edit-btn" data-id="${product.id}" style="background: #6b7280; border: none; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem;">수정</button>
+                    <button class="btn btn-sm btn-danger delete-btn" data-id="${product.id}" style="background: #ef4444; border: none; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem;">삭제</button>
                 </td>
             `;
             productTableBody.appendChild(row);
